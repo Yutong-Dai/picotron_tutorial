@@ -1,0 +1,1 @@
+python3 -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m torch.distributed.run --nproc_per_node 8 train.py --dp_size 2 --pp_size 2 --tp_size 2 --run_name process_group_manager
