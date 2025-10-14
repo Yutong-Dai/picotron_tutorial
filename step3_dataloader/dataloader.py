@@ -42,7 +42,19 @@ class MicroBatchDataLoader(DataLoader):
             return_token_type_ids=False,
             return_tensors='np'
         )
+        
+        # tokenized_text_batch = 
+        # {
+        # 'input_ids': [
+        #     [15496, 995, 0],
+        #     [703, 389, 345, 0]
+        # ]
+        # }
+        
         concatenated_tokens = {'input_ids': np.concatenate(tokenized_text_batch['input_ids'])}
+        # Now we flatten all texts end-to-end:
+        # concatenated_tokens = {'input_ids': [15496, 995, 703, 389, 345]}
+        
         total_length = len(concatenated_tokens['input_ids'])
     
         if total_length >= sequence_length + 1:
